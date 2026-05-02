@@ -1,5 +1,9 @@
 # 🐍 Snake Game (JavaScript)
 
+## 🌐 Live Demo
+
+[Play the Game](https://friendly-torrone-bb3a6f.netlify.app/)
+
 A classic Snake Game built using **HTML, CSS, and Vanilla JavaScript**.  
 This project helped me understand DOM manipulation, game loops, and basic game logic.
 
