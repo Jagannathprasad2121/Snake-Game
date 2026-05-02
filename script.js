@@ -64,11 +64,22 @@ function render(){
 
     }
 
+    // Self collision check
+    if (snake.some(segment => segment.x === head.x && segment.y === head.y)) {
+        clearInterval(interval);
+        clearInterval(timerIntervalId);
+
+        modal.style.display = "flex";
+        startGameModal.style.display = "none";
+        gameOverModal.style.display = "flex";
+        return;
+    }
+
     //Food consume
+    let ateFoot = false;
     if(head.x === food.x && head.y === food.y){
         blocks[`${food.x}-${food.y}`].classList.remove('food');
         food = {x: Math.floor(Math.random()*rows), y: Math.floor(Math.random()*cols)};
-        snake.unshift(head);
         score++;
         scoreElement.textContent = `${score}`;
 
@@ -76,6 +87,7 @@ function render(){
             highScore=score;
             localStorage.setItem("highScore",highScore.toString());
         }
+        ateFoot = true;
     }
 
     //clear old snake
@@ -85,7 +97,9 @@ function render(){
 
     //Move snake
     snake.unshift(head);
-    snake.pop();
+    if(!ateFoot){
+        snake.pop();
+    }
     snake.forEach(segment => {
         blocks[`${segment.x}-${segment.y}`].classList.add('fill');
     });
