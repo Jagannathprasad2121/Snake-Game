@@ -12,6 +12,7 @@ html, body{
 :root{
     /*Background Color*/
     --bg-primary-color: #0c0c0c;
+    --bg-fill-color: rgb(226, 221, 221);
     /*Tect Color*/
     --text-primary-color: #f0f0f0;
     /*Spacing Variablr*/
@@ -75,4 +76,8 @@ section .infos{
     width: 30px;
     height: 30px;
     border: 1px solid var(--border-secondary-color);
+}
+
+.fill{
+    background-color: var(--bg-fill-color);
 }
